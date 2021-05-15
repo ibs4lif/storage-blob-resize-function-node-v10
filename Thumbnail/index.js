@@ -29,9 +29,9 @@ const serviceURL = new ServiceURL(
   pipeline
 );
 
-module.exports = (context, eventGridEvent, inputBlob) => {  
+module.exports = async (context, eventGridEvent, inputBlob) => {  
 
-  const aborter = Aborter.timeout(30 * ONE_MINUTE);
+  const aborter = Aborter.timeout(1 * ONE_MINUTE);
   const widthInPixels = 100;
   const contentType = context.bindingData.data.contentType;
   const blobUrl = context.bindingData.data.url;
